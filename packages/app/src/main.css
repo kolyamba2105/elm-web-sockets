@@ -1,0 +1,126 @@
+/*
+  elm-hot creates an additional div wrapper around the app to make HMR possible.
+  This could break styling in development mode if you are using Elm UI.
+
+  More context in the issue:
+    https://github.com/halfzebra/create-elm-app/issues/320
+*/
+[data-elm-hot='true'] {
+  height: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.app-container {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+}
+
+.app-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+}
+
+button {
+  background-color: rgba(2, 136, 209, 0.7);
+  border-radius: 4px;
+  border: 0;
+  font-size: 16px;
+  margin: 0 8px;
+  min-width: 100px;
+  padding: 8px;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+.modal-container {
+  align-items: center;
+  background-color: rgba(21, 21, 21, 0.75);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.modal {
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  height: 70%;
+  width: 60%;
+}
+
+.modal__tabs {
+  display: flex;
+  height: 40px;
+  justify-content: center;
+}
+
+.modal__tab {
+  background-color: #eceff1;
+  border: 0;
+  border-radius: 0;
+  font-size: 18px;
+  padding: 8px;
+  width: 50%;
+}
+
+.modal__tab--active {
+  background-color: white;
+  border-bottom: 3px solid #0288d1;
+  font-style: italic;
+}
+
+.modal__body {
+  height: calc(100% - 40px - 68px);
+  padding: 32px;
+  width: 100%;
+}
+
+.modal__footer {
+  align-items: center;
+  display: flex;
+  height: 68px;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+#canvas-container {
+  border: 2px solid black;
+  height: 300px;
+  margin: 16px;
+  position: relative;
+  width: 100%;
+}
+
+#canvas-container canvas,
+#canvas-overlay {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+#canvas-overlay {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
